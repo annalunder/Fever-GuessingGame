@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Guessing game";
+}
+
+@model GuessingGame
+
+<h4>Guess a number between 1 and 100</h4>
+
+<form asp-action="GuessingGame" method="post" asp-controller="Home">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="control-label">Your guess:</label>
+        @Html.TextBoxFor(model => model.guessNumber, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input id="Submit" type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </div>
+    <label class="form-control">@ViewData["Message"]</label>
+</form>

@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Fever check";
+}
+
+@model Temperature
+
+<h4>Enter your temperature</h4>
+
+<form asp-action="FeverCheck" method="post" asp-controller="Home" role="form">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="control-label">Temperature:</label>
+        @Html.TextBoxFor(model => model.temperature, new { type = "number", min = "1", @required = "required" })
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+    </div>
+    <div>
+        <label class = "control-label">@ViewData["Message"]</label>
+    </div>
+</form>
